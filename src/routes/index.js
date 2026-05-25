@@ -4,6 +4,10 @@ const authRoutes = require('./authRoutes');
 const marcaRoutes = require('./marcaRoutes');
 const autoRoutes = require('./autoRoutes');
 
+
+const clientesRoutes = require('./clientes'); 
+const arriendosRoutes = require('./arriendos');
+
 const router = express.Router();
 
 router.get('/', (req, res) => {
@@ -22,5 +26,9 @@ router.get('/health', (req, res) => {
 router.use('/auth', authRoutes);
 router.use('/marcas', marcaRoutes);
 router.use('/autos', autoRoutes);
+
+// 2. Conectamos tus nuevas rutas al router principal
+router.use('/clientes', clientesRoutes);
+router.use('/arriendos', arriendosRoutes);
 
 module.exports = router;

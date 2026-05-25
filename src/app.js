@@ -14,13 +14,12 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// --- AQUÍ VAN TUS RUTAS (Antes de los errores) ---
-app.use(routes); // Estas son las rutas base del profe
-app.use('/clientes', clientesRouter); 
-app.use('/arriendos', arriendosRouter); 
-// -------------------------------------------------
 
-// --- MANEJO DE ERRORES (Siempre va al puro final) ---
+app.use(routes); 
+
+
+
+
 app.use((req, res) => {
   res.status(404).json({ success: false, message: 'Ruta no encontrada' });
 });
